@@ -1,0 +1,12 @@
+services:
+  db:
+    container_name: fake-api-db
+    build: ./db/docker
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: developer
+      POSTGRES_USER: developer
+      POSTGRES_DB: fake_world
+    volumes:
+      - ./db/init:/docker-entrypoint-initdb.d

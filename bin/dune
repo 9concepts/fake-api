@@ -1,4 +1,8 @@
 (executable
  (public_name fake_api)
  (name main)
- (libraries opium))
+ (libraries lwt opium caqti-lwt caqti-driver-postgresql)
+ (preprocess (pps lwt_ppx)))
+(env
+  (dev
+    (flags (:standard -w -33))))
